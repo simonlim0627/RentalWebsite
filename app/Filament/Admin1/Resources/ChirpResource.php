@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\DeleteAction;
 
 class ChirpResource extends Resource
 {
@@ -32,7 +33,7 @@ class ChirpResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('users.name')
+                TextColumn::make('user.name')
                 ->label('Username'),
                 TextColumn::make('message')
                 ->label('Message'),
@@ -42,7 +43,7 @@ class ChirpResource extends Resource
                 //
             ])
             ->actions([
-                //Tables\Actions\EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
