@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\ChirpResource\Pages;
+namespace App\Filament\Admin1\Resources\ChirpResource\Pages;
 
-use App\Filament\Resources\ChirpResource;
+use App\Filament\Admin1\Resources\ChirpResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 

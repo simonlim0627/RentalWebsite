@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Admin1\Resources;
 
-use App\Filament\Resources\ChirpResource\Pages;
-use App\Filament\Resources\ChirpResource\RelationManagers;
+use App\Filament\Admin1\Resources\ChirpResource\Pages;
+use App\Filament\Admin1\Resources\ChirpResource\RelationManagers;
 use App\Models\Chirp;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -23,7 +23,7 @@ class ChirpResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name'),
+                //
             ]);
     }
 
