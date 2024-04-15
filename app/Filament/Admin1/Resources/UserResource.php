@@ -2,9 +2,9 @@
 
 namespace App\Filament\Admin1\Resources;
 
-use App\Filament\Admin1\Resources\ChirpResource\Pages;
-use App\Filament\Admin1\Resources\ChirpResource\RelationManagers;
-use App\Models\Chirp;
+use App\Filament\Admin1\Resources\UserResource\Pages;
+use App\Filament\Admin1\Resources\UserResource\RelationManagers;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,10 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Actions\DeleteAction;
 
-class ChirpResource extends Resource
+class UserResource extends Resource
 {
-    protected static ?string $model = Chirp::class;
+    protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -33,18 +32,14 @@ class ChirpResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('user.name')
+                TextColumn::make('name')
                 ->label('Username'),
-                TextColumn::make('message')
-                ->label('Message'),
-                TextColumn::make('updated_at')
-                ->label('Date & Time'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                //
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -63,9 +58,9 @@ class ChirpResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListChirps::route('/'),
-            'create' => Pages\CreateChirp::route('/create'),
-            //'edit' => Pages\EditChirp::route('/{record}/edit'),
+            'index' => Pages\ListUsers::route('/'),
+            'create' => Pages\CreateUser::route('/create'),
+            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }
